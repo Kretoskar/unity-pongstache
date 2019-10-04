@@ -39,6 +39,41 @@ namespace Game.Gameplay
             }
         }
 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if(collision.gameObject.GetComponent<Player>() != null)
+            {
+                TweakCollisionAfterCollidingWithPlayer();
+                return;
+            }
+            else
+            {
+                TweakCollisionAfterCollision();
+            }
+        }
+
+        private void TweakCollisionAfterCollidingWithPlayer()
+        {
+            float xTweak = -_ball.RandomFactorAfterHittingPlayer * (_player.transform.position.x - transform.position.x);
+            float yTweak = 0;
+            Vector2 velTweak = new Vector2(xTweak, yTweak);
+            if (_hasGameStarted)
+                _ballRigidbody.velocity += velTweak;
+        }
+
+
+        private void TweakCollisionAfterCollision()
+        {
+            Vector2 velocityTweak = new Vector2
+                (UnityEngine.Random.Range(-_ball.XTweakAfterCollision, _ball.XTweakAfterCollision),
+                (UnityEngine.Random.Range(-_ball.YTweakAfterCollision, _ball.YTweakAfterCollision)));
+            if (_hasGameStarted)
+            {
+                _ballRigidbody.velocity += velocityTweak;
+            }
+        }
+
+
         /// <summary>
         /// Make sure the ball doesn't go wild 
         /// </summary>
