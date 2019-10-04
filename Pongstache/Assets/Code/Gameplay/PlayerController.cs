@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Game.Controllers;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace Game.Gameplay
     {
         private PlayerMover _mover;
         private Camera _mainCamera;
+        private GameStateController _gameStateController;
 
         private void Awake()
         {
@@ -21,9 +23,15 @@ namespace Game.Gameplay
         private void Start()
         {
             _mainCamera = Camera.main;
+            _gameStateController = GameStateController.Instance;
         }
 
         void Update()
+        {
+            StateMachine();
+        }
+
+        private void StateMachine()
         {
             if (Input.touchCount > 0)
             {
@@ -35,6 +43,13 @@ namespace Game.Gameplay
                 else if (userTouch.phase == TouchPhase.Moved)
                 {
                     _mover.Move(_mainCamera.ScreenToWorldPoint(userTouch.position).x);
+                }
+                else if(userTouch.phase == TouchPhase.Ended)
+                {
+                    if (!_gameStateController.IsGameOn)
+                    {
+                        _gameStateController.StartGame();
+                    }
                 }
             }
         }

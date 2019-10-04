@@ -36,6 +36,10 @@ namespace Game.Gameplay
             _distanceFromFingerToPlayer = touchXPosition - transform.position.x;
         }
 
+        /// <summary>
+        /// Move within clamp values
+        /// </summary>
+        /// <param name="touchXPosition">position of user's touch on X axis</param>
         public void Move(float touchXPosition)
         {
             float xPos = Mathf.Clamp
