@@ -1,0 +1,87 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Game.Controllers
+{
+    /// <summary>
+    /// Instantiates walls according to screen size
+    /// </summary>
+    public class BoundariesController : MonoBehaviour
+    {
+        [SerializeField]
+        private float _wallWidth = 1;
+
+        [SerializeField]
+        private string _wallsParentName = "Boundaries";
+
+        [SerializeField]
+        private string _leftWallName = "Left wall";
+
+        [SerializeField]
+        private string _rightWallName = "Right wall";
+
+        [SerializeField]
+        private string _topWallName = "Top wall";
+
+        [SerializeField]
+        private string _botWallName = "Bot wall";
+
+        private Camera _mainCamera;
+
+        private void Awake()
+        {
+            _mainCamera = Camera.main;
+        }
+
+        private void Start()
+        {
+            SetupWalls();
+        }
+
+        private void SetupWalls()
+        {
+            GameObject boundaries = new GameObject();
+            boundaries.name = _wallsParentName;
+
+            float verticalWallSize = _mainCamera.orthographicSize * 2 + _wallWidth * 2;
+            float horizontalWallSize = _mainCamera.aspect * _mainCamera.orthographicSize * 2;
+
+            //LeftWall
+            float lxPos = (-1) * (_mainCamera.aspect * _mainCamera.orthographicSize + (_wallWidth / 2));
+            GameObject leftWall = new GameObject();
+            leftWall.transform.SetParent(boundaries.transform);
+            leftWall.name = _leftWallName;
+            leftWall.transform.position = new Vector2(lxPos, 0);
+            BoxCollider2D leftWallCollider = leftWall.AddComponent<BoxCollider2D>();
+            leftWallCollider.size = new Vector2(_wallWidth, verticalWallSize);
+
+            //RightWall
+            float rxPos = (_mainCamera.aspect * _mainCamera.orthographicSize + (_wallWidth / 2));
+            GameObject rightWall = new GameObject();
+            rightWall.transform.SetParent(boundaries.transform);
+            rightWall.name = _rightWallName;
+            rightWall.transform.position = new Vector2(rxPos, 0);
+            BoxCollider2D rightWallCollider = rightWall.AddComponent<BoxCollider2D>();
+            rightWallCollider.size = new Vector2(_wallWidth, verticalWallSize);
+
+            //TopWall
+            float tyPos = (_mainCamera.orthographicSize + _wallWidth / 2);
+            GameObject topWall = new GameObject();
+            topWall.transform.SetParent(boundaries.transform);
+            topWall.name = _topWallName;
+            topWall.transform.position = new Vector2(0, tyPos);
+            BoxCollider2D topWallCollider = topWall.AddComponent<BoxCollider2D>();
+            topWallCollider.size = new Vector2(horizontalWallSize, _wallWidth);
+
+            //BotWall
+            float byPos = (-_mainCamera.orthographicSize - _wallWidth / 2);
+            GameObject botWall = new GameObject();
+            botWall.transform.SetParent(boundaries.transform);
+            botWall.name = _botWallName;
+            botWall.transform.position = new Vector2(0, byPos);
+            BoxCollider2D botWallCollider = botWall.AddComponent<BoxCollider2D>();
+            botWallCollider.size = new Vector2(horizontalWallSize, _wallWidth);
+        }
+    }
+}
