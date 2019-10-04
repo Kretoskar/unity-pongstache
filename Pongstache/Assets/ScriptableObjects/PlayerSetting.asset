@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993b1d264d5c8e34aaf072be34df391d, type: 3}
   m_Name: PlayerSetting
   m_EditorClassIdentifier: 
-  _playerSpeed: 1.5
-  _playerClamp: 2
+  _playerSpeed: 2
+  _calculateClampAccordingToScreenSize: 1
+  _customPlayerClamp: 0
+  _playerWidth: 1
+  _clampOffset: 0.1
