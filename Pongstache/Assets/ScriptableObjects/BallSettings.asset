@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxBallSpeed: 10
   _yBallPushOnStart: 10
+  _randomFactorAfterHittingPlayer: 5
+  _xTweakAfterCollision: 1
+  _yTweakAfterCollision: 1
