@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Game.Gameplay;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,5 +42,10 @@ namespace Game.Controllers
         public string TopWallName { get => _controllersSO.TopWallName; }
         public string BotWallName { get => _controllersSO.BotWallName; }
         public float BaseThreatSpeed { get => _controllersSO.BaseThreatSpeed; }
+        public float YSpawnPosition { get => _controllersSO.YSpawnPosition; }
+        public float MaxTimeBetweenSpawns { get => _controllersSO.MaxTimeBetweenSpawns; }
+        public float TimeFromMinToMaxTime { get => _controllersSO.TimeFromMinToMaxTime; }
+        public AnimationCurve SpawnCurve { get => _controllersSO.SpawnCurve; }
+        public List<Threat> Threats { get => _controllersSO.Threats; }
     }
 }

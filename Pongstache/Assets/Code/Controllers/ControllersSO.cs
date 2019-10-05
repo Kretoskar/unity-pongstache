@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Game.Gameplay;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,6 +30,24 @@ public class ControllersSO : ScriptableObject
     [Range(0.1f, 10)]
     private float _baseThreatSpeed = 1;
 
+    [SerializeField]
+    [Range(0.1f, 10)]
+    private float _ySpawnPosition = 6;
+
+    [SerializeField]
+    [Range(0.1f, 10)]
+    private float _maxTimeBetweenSpawns = 2f;
+
+    [SerializeField]
+    [Range(0, 120)]
+    private float _timeFromMinToMaxTime = 60;
+
+    [SerializeField]
+    private AnimationCurve _spawnCurve;
+
+    [SerializeField]
+    private List<Threat> _threats;
+
     public float WallWidth { get => _wallWidth; }
     public string WallsParentName { get => _wallsParentName; }
     public string LeftWallName { get => _leftWallName; }
@@ -36,4 +55,9 @@ public class ControllersSO : ScriptableObject
     public string TopWallName { get => _topWallName; }
     public string BotWallName { get => _botWallName; }
     public float BaseThreatSpeed { get => _baseThreatSpeed; }
+    public float YSpawnPosition { get => _ySpawnPosition; }
+    public float MaxTimeBetweenSpawns { get => _maxTimeBetweenSpawns; }
+    public float TimeFromMinToMaxTime { get => _timeFromMinToMaxTime; }
+    public AnimationCurve SpawnCurve { get => _spawnCurve; }
+    public List<Threat> Threats { get => _threats; }
 }
