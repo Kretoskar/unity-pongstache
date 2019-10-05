@@ -1,4 +1,5 @@
 ﻿using Game.Gameplay;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,12 +11,15 @@ namespace Game.Controllers
         private float _timer;
         private float _xSpawnPosMin;
         private float _xSpawnPosMax;
+        private float _xSpawnBoundary;
         private List<Threat> _threats;
         private GameSettings _gameSettings;
+        private Camera _mainCamera;
 
         private void Awake()
         {
             _timer = 0;
+            _mainCamera = Camera.main;
         }
 
         private void Start()
@@ -23,6 +27,14 @@ namespace Game.Controllers
             _gameSettings = GameSettings.Instance;
             _threats = _gameSettings.Threats;
             StartCoroutine(SpawnCoroutine());
+
+            CalculateSpawnBoundary();
+        }
+
+        private void CalculateSpawnBoundary()
+        {
+            float horizontalScreenToWorld = _mainCamera.aspect * _mainCamera.orthographicSize;
+            _xSpawnBoundary = horizontalScreenToWorld;
         }
 
         private void Update()
@@ -51,8 +63,8 @@ namespace Game.Controllers
         private void SpawnThreat()
         {
             //TODO: Change magic numbers
-            Vector2 spawnPosition = new Vector2(Random.Range(-3, 3), _gameSettings.YSpawnPosition);
-            int spawnIndex = Random.Range(0, _threats.Count);
+            Vector2 spawnPosition = new Vector2(UnityEngine.Random.Range(-_xSpawnBoundary, _xSpawnBoundary), _gameSettings.YSpawnPosition);
+            int spawnIndex = UnityEngine.Random.Range(0, _threats.Count);
             Instantiate(_threats[spawnIndex], spawnPosition, Quaternion.identity);
         }
     }
