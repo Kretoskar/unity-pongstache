@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Gameplay;
 
 namespace Game.Controllers
 {
@@ -79,6 +80,8 @@ namespace Game.Controllers
             botWall.transform.position = new Vector2(0, byPos);
             BoxCollider2D botWallCollider = botWall.AddComponent<BoxCollider2D>();
             botWallCollider.size = new Vector2(horizontalWallSize, _wallWidth);
+            botWallCollider.isTrigger = true;
+            botWall.AddComponent<DeathZone>();
         }
     }
 }
