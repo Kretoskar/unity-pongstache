@@ -7,12 +7,14 @@ namespace Game.Controllers
 {
     public class GameStateController : MonoBehaviour
     {
-        private static GameStateController _instance;
-        public static GameStateController Instance { get => _instance; }
-
         public bool IsGameOn { get; private set; }
 
-        public event Action StartGameEvent;    
+        public event Action StartGameEvent;
+
+        #region Singleton
+
+        private static GameStateController _instance;
+        public static GameStateController Instance { get => _instance; }
 
         private void Awake()
         {
@@ -20,15 +22,9 @@ namespace Game.Controllers
             SetupSingleton();
         }
 
-        public void StartGame()
-        {
-            StartGameEvent?.Invoke();
-            IsGameOn = true;
-        }
-
         private void SetupSingleton()
         {
-            if(_instance != null && _instance != this)
+            if (_instance != null && _instance != this)
             {
                 Destroy(gameObject);
             }
@@ -36,6 +32,14 @@ namespace Game.Controllers
             {
                 _instance = this;
             }
+        }
+
+        #endregion
+
+        public void StartGame()
+        {
+            StartGameEvent?.Invoke();
+            IsGameOn = true;
         }
     }
 }

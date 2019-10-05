@@ -8,6 +8,7 @@ namespace Game.Controllers
     /// <summary>
     /// Instantiates walls according to screen size
     /// </summary>
+    [RequireComponent(typeof(GameSettings))]
     public class BoundariesController : MonoBehaviour
     {
         private float _wallWidth;
