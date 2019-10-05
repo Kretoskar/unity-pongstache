@@ -9,50 +9,43 @@ namespace Game.Gameplay
     /// Move the player according to user's input
     /// </summary>
     [RequireComponent(typeof(Player))]
-    public class Mover : MonoBehaviour
+    public class PlayerMover : MonoBehaviour
     {
         private Camera _mainCamera;
         private Player _player;
         private float _distanceFromFingerToPlayer;
+        private float _clampValue;
 
         private void Awake()
         {
             _mainCamera = Camera.main;
             _player = GetComponent<Player>();
-        }
-
-        private void Update()
-        {
-            MoveThePlayer();
-        }
-
-        private void MoveThePlayer()
-        {
-            if(Input.touchCount > 0)
+            if(_player.CalculateClampAccordingToScreenSize)
             {
-                Touch userTouch = Input.GetTouch(0);
-                if(userTouch.phase == TouchPhase.Began)
-                {
-                    CalculateDistanceFromFingerToPlayer(_mainCamera.ScreenToWorldPoint(userTouch.position).x);
-                }
-                else if (userTouch.phase == TouchPhase.Moved)
-                {
-                    Move(_mainCamera.ScreenToWorldPoint(userTouch.position).x);
-                }
+                _clampValue = 
+                    _mainCamera.aspect * _mainCamera.orthographicSize - _player.PlayerWidth/2 - _player.ClampOffset;
+            }
+            else
+            {
+                _clampValue = _player.Clamp;
             }
         }
 
-        private void CalculateDistanceFromFingerToPlayer(float touchXPosition)
+        public void CalculateDistanceFromFingerToPlayer(float touchXPosition)
         {
             _distanceFromFingerToPlayer = touchXPosition - transform.position.x;
         }
 
-        private void Move(float touchXPosition)
+        /// <summary>
+        /// Move within clamp values
+        /// </summary>
+        /// <param name="touchXPosition">position of user's touch on X axis</param>
+        public void Move(float touchXPosition)
         {
             float xPos = Mathf.Clamp
                 (((touchXPosition - _distanceFromFingerToPlayer) * _player.Speed),
-                (-1 * _player.Clamp),
-                (_player.Clamp));
+                (-1 * _clampValue),
+                (_clampValue));
             float yPos = transform.position.y;
 
             transform.position = new Vector2(xPos, yPos);

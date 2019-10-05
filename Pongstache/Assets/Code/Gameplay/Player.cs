@@ -14,5 +14,8 @@ namespace Game.Gameplay
 
         public float Speed { get => _playerSettings.Speed; }
         public float Clamp { get => _playerSettings.Clamp; }
+        public bool CalculateClampAccordingToScreenSize { get => _playerSettings.CalculateClampAccordingToScreenSize; }
+        public float PlayerWidth { get => _playerSettings.PlayerWidth; }
+        public float ClampOffset { get => _playerSettings.ClampOffset; }
     }
 }
