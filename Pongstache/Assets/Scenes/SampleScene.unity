@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 118824895}
   - component: {fileID: 118824894}
   - component: {fileID: 118824896}
+  - component: {fileID: 118824897}
   m_Layer: 0
   m_Name: Controllers
   m_TagString: Untagged
@@ -176,12 +177,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d137edd3bbef3cf47b1860633a492a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wallWidth: 1
-  _wallsParentName: Boundaries
-  _leftWallName: Left wall
-  _rightWallName: Right wall
-  _topWallName: Top wall
-  _botWallName: Bot wall
+--- !u!114 &118824897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118824893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0d79cb22a929f40a60ad8782734d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controllersSO: {fileID: 11400000, guid: 74d3bd533e461b64a9f5622091070050, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

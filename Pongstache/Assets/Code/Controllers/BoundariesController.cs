@@ -9,33 +9,30 @@ namespace Game.Controllers
     /// </summary>
     public class BoundariesController : MonoBehaviour
     {
-        [SerializeField]
-        private float _wallWidth = 1;
-
-        [SerializeField]
-        private string _wallsParentName = "Boundaries";
-
-        [SerializeField]
-        private string _leftWallName = "Left wall";
-
-        [SerializeField]
-        private string _rightWallName = "Right wall";
-
-        [SerializeField]
-        private string _topWallName = "Top wall";
-
-        [SerializeField]
-        private string _botWallName = "Bot wall";
+        private float _wallWidth;
+        private string _wallsParentName;
+        private string _leftWallName;
+        private string _rightWallName;
+        private string _topWallName;
+        private string _botWallName;
 
         private Camera _mainCamera;
+        private GameSettings _gameSettings;
 
         private void Awake()
         {
             _mainCamera = Camera.main;
+            _gameSettings = GetComponent<GameSettings>();
         }
 
         private void Start()
         {
+            _wallWidth = _gameSettings.WallWidth;
+            _wallsParentName = _gameSettings.WallsParentName;
+            _leftWallName = _gameSettings.LeftWallName;
+            _rightWallName = _gameSettings.RightWallName;
+            _topWallName = _gameSettings.TopWallName;
+            _botWallName = _gameSettings.BotWallName;
             SetupWalls();
         }
 
