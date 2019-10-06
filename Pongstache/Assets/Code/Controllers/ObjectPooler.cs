@@ -12,12 +12,12 @@ namespace Game.Controllers
             [SerializeField]
             private string _tag;
             [SerializeField]
-            private List<GameObject> _prefabs;
-            [SerializeField]
             private int _size;
 
+            private List<GameObject> _prefabs;
+
             public string Tag { get => _tag; }
-            public List<GameObject> Prefabs { get => _prefabs; }
+            public List<GameObject> Prefabs { get => _prefabs; set => _prefabs = value; }
             public int Size { get => _size; }
         }
 
@@ -87,13 +87,14 @@ namespace Game.Controllers
                 Queue<GameObject> objectPool = new Queue<GameObject>();
                 GameObject parent = new GameObject(pool.Tag);
 
+                pool.Prefabs = GameSettings.Instance.Threats;
+
                 for (int i = 0; i < pool.Size; i++)
                 {
                     GameObject obj = Instantiate(pool.Prefabs[UnityEngine.Random.Range(0, pool.Prefabs.Capacity)], parent.transform);
                     obj.SetActive(false);
                     objectPool.Enqueue(obj);
                 }
-
                 _poolDictionary.Add(pool.Tag, objectPool);
             }
         }

@@ -12,7 +12,6 @@ namespace Game.Controllers
         private float _xSpawnPosMin;
         private float _xSpawnPosMax;
         private float _xSpawnBoundary;
-        private List<Threat> _threats;
         private GameSettings _gameSettings;
         private Camera _mainCamera;
 
@@ -25,7 +24,6 @@ namespace Game.Controllers
         private void Start()
         {
             _gameSettings = GameSettings.Instance;
-            _threats = _gameSettings.Threats;
             StartCoroutine(SpawnCoroutine());
 
             CalculateSpawnBoundary();

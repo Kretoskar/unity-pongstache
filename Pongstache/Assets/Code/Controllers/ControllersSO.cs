@@ -46,7 +46,7 @@ public class ControllersSO : ScriptableObject
     private AnimationCurve _spawnCurve;
 
     [SerializeField]
-    private List<Threat> _threats;
+    private List<GameObject> _threats;
 
     public float WallWidth { get => _wallWidth; }
     public string WallsParentName { get => _wallsParentName; }
@@ -59,5 +59,5 @@ public class ControllersSO : ScriptableObject
     public float MaxTimeBetweenSpawns { get => _maxTimeBetweenSpawns; }
     public float TimeFromMinToMaxTime { get => _timeFromMinToMaxTime; }
     public AnimationCurve SpawnCurve { get => _spawnCurve; }
-    public List<Threat> Threats { get => _threats; }
+    public List<GameObject> Threats { get => _threats; }
 }
