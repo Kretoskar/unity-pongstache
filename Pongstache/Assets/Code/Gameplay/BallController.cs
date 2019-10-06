@@ -6,6 +6,9 @@ using System;
 
 namespace Game.Gameplay
 {
+    /// <summary>
+    /// Ball state machine
+    /// </summary>
     public class BallController : MonoBehaviour
     {
         private Player _player;

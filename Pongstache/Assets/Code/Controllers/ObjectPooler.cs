@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace Game.Controllers
 {
+    /// <summary>
+    /// Instantiates disabled threats at the start of the game.
+    /// Contains methods for enabling - "spawning" them
+    /// </summary>
     public class ObjectPooler : MonoBehaviour
     {
         [SerializeField]
