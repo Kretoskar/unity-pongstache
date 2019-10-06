@@ -17,12 +17,6 @@ namespace Game.Controllers
         private static GameStateController _instance;
         public static GameStateController Instance { get => _instance; }
 
-        private void Awake()
-        {
-            IsGameOn = false;
-            SetupSingleton();
-        }
-
         private void SetupSingleton()
         {
             if (_instance != null && _instance != this)
@@ -36,6 +30,12 @@ namespace Game.Controllers
         }
 
         #endregion
+
+        private void Awake()
+        {
+            IsGameOn = false;
+            SetupSingleton();
+        }
 
         public void StartGame()
         {

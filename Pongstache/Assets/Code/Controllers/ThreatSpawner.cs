@@ -62,10 +62,9 @@ namespace Game.Controllers
         /// </summary>
         private void SpawnThreat()
         {
-            //TODO: Change magic numbers
+            //TODO: Change magic string
             Vector2 spawnPosition = new Vector2(UnityEngine.Random.Range(-_xSpawnBoundary, _xSpawnBoundary), _gameSettings.YSpawnPosition);
-            int spawnIndex = UnityEngine.Random.Range(0, _threats.Count);
-            Instantiate(_threats[spawnIndex], spawnPosition, Quaternion.identity);
+            ObjectPooler.Instance.SpawnFromPool("Threats", spawnPosition, Quaternion.identity);
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Game.Gameplay
 {
-    public class Threat : MonoBehaviour
+    public class Threat : MonoBehaviour, IPooledObject
     {
         private GameSettings _gameSettings;
 
@@ -19,6 +19,17 @@ namespace Game.Gameplay
             Move();
         }
 
+
+        public void OnObjectSpawn()
+        {
+            //Do stuff on spawn
+        }
+
+        public void DisableThreat()
+        {
+            gameObject.SetActive(false);
+        }
+
         private void Move()
         {
             transform.Translate(Vector3.down * Time.deltaTime * _gameSettings.BaseThreatSpeed);
@@ -27,7 +38,7 @@ namespace Game.Gameplay
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.GetComponent<Ball>() != null)
-                Destroy(gameObject);
+                DisableThreat();
         }
     }
 }

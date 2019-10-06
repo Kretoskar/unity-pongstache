@@ -20,9 +20,10 @@ namespace Game.Gameplay
         private void OnTriggerEnter2D(Collider2D collision)
         {
             GameObject collGO = collision.gameObject;
-            if (collGO.GetComponent<Threat>() != null)
+            Threat collThreat = collGO.GetComponent<Threat>();
+            if (collThreat != null)
             {
-                Destroy(collGO, 1);
+                collThreat.DisableThreat();
             }
             else if (collGO.GetComponent<Ball>() != null)
             {
