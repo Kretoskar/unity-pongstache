@@ -6,6 +6,10 @@ using UnityEngine;
 
 namespace Game.Controllers
 {
+    /// <summary>
+    /// Spawns threats withing a coroutine.
+    /// Uses object pooling
+    /// </summary>
     public class ThreatSpawner : MonoBehaviour
     {
         private float _timer;

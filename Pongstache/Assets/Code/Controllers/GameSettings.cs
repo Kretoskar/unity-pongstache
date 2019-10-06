@@ -8,7 +8,7 @@ namespace Game.Controllers
     public class GameSettings : MonoBehaviour
     {
         [SerializeField]
-        private ControllersSO _controllersSO;
+        private GameSettingsSO _controllersSO;
 
         #region Singleton
 

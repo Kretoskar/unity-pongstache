@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 namespace Game.Gameplay
 {
+    /// <summary>
+    /// Restarts game when ball hits it, 
+    /// disables threats
+    /// </summary>
     [RequireComponent(typeof(Collider2D))]
     public class DeathZone : MonoBehaviour
     {

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Game.Gameplay
 {
     /// <summary>
-    /// Control player's state
+    /// Player state machine
     /// </summary>
     [RequireComponent(typeof(PlayerMover))]
     public class PlayerController : MonoBehaviour

@@ -6,7 +6,7 @@ using Game.Gameplay;
 namespace Game.Controllers
 {
     /// <summary>
-    /// Instantiates walls according to screen size
+    /// Instantiates walls with size and position according to screen size
     /// </summary>
     [RequireComponent(typeof(GameSettings))]
     public class BoundariesController : MonoBehaviour

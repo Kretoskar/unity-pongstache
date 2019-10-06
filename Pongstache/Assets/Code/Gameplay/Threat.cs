@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Game.Gameplay
 {
+    /// <summary>
+    /// Threat behaviour (falling)
+    /// </summary>
     public class Threat : MonoBehaviour, IPooledObject
     {
         private GameSettings _gameSettings;

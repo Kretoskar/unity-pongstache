@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 namespace Game.Controllers
 {
+    /// <summary>
+    /// Methods for starting and restarting game.
+    /// Property with current game state 
+    /// </summary>
     public class GameStateController : MonoBehaviour
     {
         public bool IsGameOn { get; private set; }
@@ -43,6 +47,9 @@ namespace Game.Controllers
             IsGameOn = true;
         }
 
+        /// <summary>
+        /// Reset the scene
+        /// </summary>
         public void RestartGame()
         {
             SceneManager.LoadScene(0);
