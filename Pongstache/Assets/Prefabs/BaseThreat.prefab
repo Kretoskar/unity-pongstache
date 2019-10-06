@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2689018792184086952}
   - component: {fileID: 8344768572930026538}
   - component: {fileID: 6136770943171595620}
+  - component: {fileID: 5712866666368168111}
   m_Layer: 0
   m_Name: BaseThreat
   m_TagString: Untagged
@@ -93,3 +94,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552d191fc04b1ea43a4c367abcfd21c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &5712866666368168111
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088285976341125503}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.25, y: 0.25}
+    newSize: {x: 0.25, y: 0.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.25}
+  m_EdgeRadius: 0

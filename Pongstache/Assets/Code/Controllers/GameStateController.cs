@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Game.Controllers
 {
@@ -40,6 +41,11 @@ namespace Game.Controllers
         {
             StartGameEvent?.Invoke();
             IsGameOn = true;
+        }
+
+        public void RestartGame()
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }

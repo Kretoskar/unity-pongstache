@@ -20,7 +20,7 @@ MonoBehaviour:
   _botWallName: Bot wall
   _baseThreatSpeed: 1
   _ySpawnPosition: 6
-  _maxTimeBetweenSpawns: 0.5
+  _maxTimeBetweenSpawns: 2
   _timeFromMinToMaxTime: 60
   _spawnCurve:
     serializedVersion: 2
