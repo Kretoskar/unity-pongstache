@@ -217,9 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabfa24b048cf0642a9fafd878ae6568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pools:
-  - _tag: Threats
-    _size: 50
+  _objectPoolSO: {fileID: 11400000, guid: d179e3a1441ed85449c7dc3399e7789a, type: 2}
 --- !u!114 &118824900
 MonoBehaviour:
   m_ObjectHideFlags: 0

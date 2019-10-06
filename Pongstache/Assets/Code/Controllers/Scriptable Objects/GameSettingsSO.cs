@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameSettings", menuName = "Controllers/GameSettings")]
-public class ControllersSO : ScriptableObject
+public class GameSettingsSO : ScriptableObject
 {
     [Header("Boundaries")]
     [SerializeField]

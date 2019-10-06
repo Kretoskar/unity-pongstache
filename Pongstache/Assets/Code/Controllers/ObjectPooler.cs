@@ -7,24 +7,10 @@ namespace Game.Controllers
 {
     public class ObjectPooler : MonoBehaviour
     {
-        [System.Serializable]
-        public class Pool
-        {
-            [SerializeField]
-            private string _tag;
-            [SerializeField]
-            private int _size;
-
-            private List<ThreatBlueprint> _prefabs = new List<ThreatBlueprint>();
-
-            public string Tag { get => _tag; }
-            public List<ThreatBlueprint> Prefabs { get => _prefabs; set => _prefabs = value; }
-            public int Size { get => _size; }
-        }
-
         [SerializeField]
-        private List<Pool> _pools;
+        private ObjectPoolSO _objectPoolSO;
 
+        private List<Pool> _pools;
         private ThreatSettings _threatSettings;
 
         public Dictionary<string, Queue<GameObject>> _poolDictionary;
@@ -52,6 +38,7 @@ namespace Game.Controllers
         {
             SetupSingleton();
             _threatSettings = GetComponent<ThreatSettings>();
+            _pools = _objectPoolSO.Pools;
         }
 
         private void Start()
