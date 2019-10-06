@@ -2,17 +2,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Game.Controllers
 {
     public class GameStateController : MonoBehaviour
     {
+        public bool IsGameOn { get; private set; }
+
+        public event Action StartGameEvent;
+
+        #region Singleton
+
         private static GameStateController _instance;
         public static GameStateController Instance { get => _instance; }
 
-        public bool IsGameOn { get; private set; }
+        private void SetupSingleton()
+        {
+            if (_instance != null && _instance != this)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                _instance = this;
+            }
+        }
 
-        public event Action StartGameEvent;    
+        #endregion
 
         private void Awake()
         {
@@ -26,16 +43,9 @@ namespace Game.Controllers
             IsGameOn = true;
         }
 
-        private void SetupSingleton()
+        public void RestartGame()
         {
-            if(_instance != null && _instance != this)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                _instance = this;
-            }
+            SceneManager.LoadScene(0);
         }
     }
 }

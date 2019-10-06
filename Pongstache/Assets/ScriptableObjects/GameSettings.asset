@@ -18,3 +18,44 @@ MonoBehaviour:
   _rightWallName: Right wall
   _topWallName: Top wall
   _botWallName: Bot wall
+  _baseThreatSpeed: 1
+  _ySpawnPosition: 6
+  _maxTimeBetweenSpawns: 2
+  _timeFromMinToMaxTime: 60
+  _spawnCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.05682373
+      value: 0.9937744
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.31565022
+      value: 0.80997294
+      inSlope: -1.654964
+      outSlope: -1.654964
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.17423566
+    - serializedVersion: 3
+      time: 0.9962158
+      value: 0.49583435
+      inSlope: -0.09613361
+      outSlope: -0.09613361
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.0943021
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _threats:
+  - {fileID: 1088285976341125503, guid: 4caf5925ff5e12c4ab42b2b25e0a0445, type: 3}
+  - {fileID: 525720908599384873, guid: 1de29be426cd3624abba8f5325554d8e, type: 3}
+  - {fileID: 1374540057944080437, guid: 186417513c61a75489b62b9610923d36, type: 3}
