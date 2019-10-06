@@ -9,6 +9,8 @@ namespace Game.Gameplay
     {
         private GameSettings _gameSettings;
 
+        public float Speed { get; set; }
+
         private void Start()
         {
             _gameSettings = GameSettings.Instance;
@@ -32,7 +34,7 @@ namespace Game.Gameplay
 
         private void Move()
         {
-            transform.Translate(Vector3.down * Time.deltaTime * _gameSettings.BaseThreatSpeed);
+            transform.Translate(Vector3.down * Time.deltaTime * Speed);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

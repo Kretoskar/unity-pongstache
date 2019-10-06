@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Game.Gameplay;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,15 +15,18 @@ namespace Game.Controllers
             [SerializeField]
             private int _size;
 
-            private List<GameObject> _prefabs;
+            private List<ThreatBlueprint> _prefabs = new List<ThreatBlueprint>();
 
             public string Tag { get => _tag; }
-            public List<GameObject> Prefabs { get => _prefabs; set => _prefabs = value; }
+            public List<ThreatBlueprint> Prefabs { get => _prefabs; set => _prefabs = value; }
             public int Size { get => _size; }
         }
 
         [SerializeField]
         private List<Pool> _pools;
+
+        private ThreatSettings _threatSettings;
+
         public Dictionary<string, Queue<GameObject>> _poolDictionary;
 
         #region Singleton
@@ -47,6 +51,7 @@ namespace Game.Controllers
         private void Awake()
         {
             SetupSingleton();
+            _threatSettings = GetComponent<ThreatSettings>();
         }
 
         private void Start()
@@ -87,13 +92,23 @@ namespace Game.Controllers
                 Queue<GameObject> objectPool = new Queue<GameObject>();
                 GameObject parent = new GameObject(pool.Tag);
 
-                pool.Prefabs = GameSettings.Instance.Threats;
+                foreach (ThreatBlueprint threat in _threatSettings.Threats)
+                {
+                    pool.Prefabs.Add(threat);
+                }
+
 
                 for (int i = 0; i < pool.Size; i++)
                 {
-                    GameObject obj = Instantiate(pool.Prefabs[UnityEngine.Random.Range(0, pool.Prefabs.Capacity)], parent.transform);
+                    int r = UnityEngine.Random.Range(0, pool.Prefabs.Count);
+                    GameObject obj = Instantiate(pool.Prefabs[r].Prefab, parent.transform);
                     obj.SetActive(false);
                     objectPool.Enqueue(obj);
+                    Threat threat = obj.GetComponent<Threat>();
+                    if(threat != null)
+                    {
+                        threat.Speed = pool.Prefabs[r].Speed;
+                    }
                 }
                 _poolDictionary.Add(pool.Tag, objectPool);
             }

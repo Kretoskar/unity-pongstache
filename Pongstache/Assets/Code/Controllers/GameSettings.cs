@@ -46,6 +46,5 @@ namespace Game.Controllers
         public float MaxTimeBetweenSpawns { get => _controllersSO.MaxTimeBetweenSpawns; }
         public float TimeFromMinToMaxTime { get => _controllersSO.TimeFromMinToMaxTime; }
         public AnimationCurve SpawnCurve { get => _controllersSO.SpawnCurve; }
-        public List<GameObject> Threats { get => _controllersSO.Threats; }
     }
 }
