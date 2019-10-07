@@ -20,7 +20,7 @@ namespace Game.Gameplay
         private void Start()
         {
             _scoreController = FindObjectOfType<ScoreController>();
-            _gameSettings = GameSettings.Instance;
+            _gameSettings = FindObjectOfType<GameSettings>();
         }
 
         private void Update()

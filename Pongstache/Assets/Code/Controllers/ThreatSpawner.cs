@@ -27,7 +27,7 @@ namespace Game.Controllers
 
         private void Start()
         {
-            _gameSettings = GameSettings.Instance;
+            _gameSettings = GetComponent<GameSettings>();
             StartCoroutine(SpawnCoroutine());
 
             CalculateSpawnBoundary();

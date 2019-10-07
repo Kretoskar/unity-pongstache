@@ -27,7 +27,7 @@ namespace Game.Gameplay
             _player = FindObjectOfType<Player>();
             if (_player == null)
                 Debug.LogWarning("Can't find player");
-            GameStateController.Instance.StartGameEvent += LaunchBall;
+            FindObjectOfType<GameStateController>().StartGameEvent += LaunchBall;
         }
 
         private void Update()

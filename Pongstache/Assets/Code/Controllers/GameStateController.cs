@@ -16,29 +16,9 @@ namespace Game.Controllers
 
         public event Action StartGameEvent;
 
-        #region Singleton
-
-        private static GameStateController _instance;
-        public static GameStateController Instance { get => _instance; }
-
-        private void SetupSingleton()
-        {
-            if (_instance != null && _instance != this)
-            {
-                Destroy(gameObject);
-            }
-            else
-            {
-                _instance = this;
-            }
-        }
-
-        #endregion
-
         private void Awake()
         {
             IsGameOn = false;
-            SetupSingleton();
         }
 
         public void StartGame()
