@@ -82,7 +82,7 @@ namespace Game.Gameplay
         /// </summary>
         private void KeepConstantSpeed()
         {
-            _ballRigidbody.velocity = _ball.MaxBallSpeed * (_ballRigidbody.velocity.normalized);
+            _ballRigidbody.velocity = _ball.BaseBallSpeed * (_ballRigidbody.velocity.normalized);
         }
 
         private void StickBallToPaddle()
@@ -95,7 +95,7 @@ namespace Game.Gameplay
         private void LaunchBall()
         {
             _hasGameStarted = true;
-            _ballRigidbody.velocity = new Vector2(0, _ball.YBallPushOnStart);
+            _ballRigidbody.velocity = new Vector2(0, _ball.BaseBallSpeed);
         }
     }
 }

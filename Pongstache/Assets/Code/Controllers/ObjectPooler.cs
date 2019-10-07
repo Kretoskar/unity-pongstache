@@ -98,7 +98,6 @@ namespace Game.Controllers
                     Threat threat = obj.GetComponent<Threat>();
                     if(threat != null)
                     {
-                        print(pool.Prefabs[r].ScoreToAdd);
                         threat.Speed = pool.Prefabs[r].Speed;
                         threat.ScoreToAdd = pool.Prefabs[r].ScoreToAdd;
                     }

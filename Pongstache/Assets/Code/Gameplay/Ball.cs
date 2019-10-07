@@ -9,8 +9,7 @@ namespace Game.Gameplay
         [SerializeField]
         private BallSO _ballSo;
 
-        public float MaxBallSpeed { get => _ballSo.MaxBallSpeed; }
-        public float YBallPushOnStart { get => _ballSo.YBallPushOnStart; }
+        public float BaseBallSpeed { get => _ballSo.BaseBallSpeed; }
         public float RandomFactorAfterHittingPlayer { get => _ballSo.RandomFactorAfterHittingPlayer; }
         public float YTweakAfterCollision { get => _ballSo.YTweakAfterCollision; }
         public float XTweakAfterCollision { get => _ballSo.XTweakAfterCollision; }

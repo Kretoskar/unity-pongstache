@@ -9,11 +9,7 @@ namespace Game.Gameplay
     {
         [SerializeField]
         [Range(0.1f, 20)]
-        private float _maxBallSpeed;
-
-        [SerializeField]
-        [Range(0.1f,20)]
-        private float _yBallPushOnStart;
+        private float _baseBallSpeed;
 
         [SerializeField]
         [Range(0.1f, 10)]
@@ -27,8 +23,7 @@ namespace Game.Gameplay
         [Range(0.1f, 10)]
         private float _yTweakAfterCollision;
 
-        public float MaxBallSpeed { get => _maxBallSpeed; }
-        public float YBallPushOnStart { get => _yBallPushOnStart; }
+        public float BaseBallSpeed { get => _baseBallSpeed; }
         public float RandomFactorAfterHittingPlayer { get => _randomFactorAfterHittingPlayer; }
         public float YTweakAfterCollision { get => _yTweakAfterCollision; }
         public float XTweakAfterCollision { get => _xTweakAfterCollision; }
