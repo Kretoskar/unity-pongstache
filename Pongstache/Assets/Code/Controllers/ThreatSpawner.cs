@@ -53,7 +53,6 @@ namespace Game.Controllers
         {
             float timeToSpawn = _gameSettings.SpawnCurve.Evaluate(_timer / _gameSettings.TimeFromMinToMaxTime);
             timeToSpawn *= _gameSettings.MaxTimeBetweenSpawns;
-            print(timeToSpawn);
             yield return new WaitForSeconds(timeToSpawn);
             SpawnThreat();
             StartCoroutine(SpawnCoroutine());

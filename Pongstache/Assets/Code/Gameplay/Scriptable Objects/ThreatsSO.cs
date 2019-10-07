@@ -19,11 +19,16 @@ namespace Game.Gameplay
         private int _shotsToDestroy;
 
         [SerializeField]
+        [Range(1, 10)]
+        private int _scoreToAdd;
+
+        [SerializeField]
         private GameObject _prefab;
 
         public string Name { get => _name; }
         public float Speed { get => _speed; }
         public int ShotsToDestroy { get => _shotsToDestroy; }
+        public int ScoreToAdd { get => _scoreToAdd; }
         public GameObject Prefab { get => _prefab; }
     }
 

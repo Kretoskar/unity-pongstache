@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.Controllers;
 
 namespace Game.Gameplay
 {
@@ -10,12 +11,15 @@ namespace Game.Gameplay
     /// </summary>
     public class Threat : MonoBehaviour, IPooledObject
     {
+        private ScoreController _scoreController;
         private GameSettings _gameSettings;
 
         public float Speed { get; set; }
+        public int ScoreToAdd { get; set; }
 
         private void Start()
         {
+            _scoreController = FindObjectOfType<ScoreController>();
             _gameSettings = GameSettings.Instance;
         }
 
@@ -43,7 +47,11 @@ namespace Game.Gameplay
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.GetComponent<Ball>() != null)
+            {
+                print(ScoreToAdd);
+                _scoreController.Score += ScoreToAdd;
                 DisableThreat();
+            }
         }
     }
 }
