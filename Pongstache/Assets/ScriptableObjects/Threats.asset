@@ -10,21 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49b6b229eb653f342b7dc6f520b223c0, type: 3}
-  m_Name: ThreatsSettings
+  m_Name: Threats
   m_EditorClassIdentifier: 
   _threats:
   - _name: Base white
     _speed: 1
     _shotsToDestroy: 1
+    _scoreToAdd: 1
     _prefab: {fileID: 1088285976341125503, guid: 4caf5925ff5e12c4ab42b2b25e0a0445,
       type: 3}
   - _name: Red
     _speed: 1.5
     _shotsToDestroy: 1
+    _scoreToAdd: 2
     _prefab: {fileID: 1374540057944080437, guid: 186417513c61a75489b62b9610923d36,
       type: 3}
   - _name: Green
     _speed: 0.5
     _shotsToDestroy: 1
+    _scoreToAdd: 3
     _prefab: {fileID: 525720908599384873, guid: 1de29be426cd3624abba8f5325554d8e,
       type: 3}

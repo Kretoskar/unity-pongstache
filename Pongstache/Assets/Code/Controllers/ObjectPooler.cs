@@ -99,6 +99,7 @@ namespace Game.Controllers
                     if(threat != null)
                     {
                         threat.Speed = pool.Prefabs[r].Speed;
+                        threat.ScoreToAdd = pool.Prefabs[r].ScoreToAdd;
                     }
                 }
                 _poolDictionary.Add(pool.Tag, objectPool);

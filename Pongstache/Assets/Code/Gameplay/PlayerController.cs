@@ -23,7 +23,7 @@ namespace Game.Gameplay
         private void Start()
         {
             _mainCamera = Camera.main;
-            _gameStateController = GameStateController.Instance;
+            _gameStateController = FindObjectOfType<GameStateController>();
         }
 
         void Update()

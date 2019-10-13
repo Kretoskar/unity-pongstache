@@ -13,8 +13,11 @@ namespace Game.Gameplay
     [RequireComponent(typeof(Collider2D))]
     public class DeathZone : MonoBehaviour
     {
+        private GameStateController _gameStateController;
+
         private void Start()
         {
+            _gameStateController = FindObjectOfType<GameStateController>();
             // Add rigidbody for collisions to be detected
             Rigidbody2D rb = gameObject.AddComponent<Rigidbody2D>();
             rb.isKinematic = true;
@@ -31,7 +34,7 @@ namespace Game.Gameplay
             }
             else if (collGO.GetComponent<Ball>() != null)
             {
-                GameStateController.Instance.RestartGame();
+                _gameStateController.RestartGame();
             }
         }
     }
