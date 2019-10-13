@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 618741b76f75c23478b7488fdf8b61a3, type: 3}
-  m_Name: BallSettings
+  m_Name: Ball
   m_EditorClassIdentifier: 
-  _maxBallSpeed: 10
-  _yBallPushOnStart: 10
+  _baseBallSpeed: 5
   _randomFactorAfterHittingPlayer: 5
   _xTweakAfterCollision: 1
   _yTweakAfterCollision: 1
