@@ -27,6 +27,8 @@ namespace Game.Controllers
             UpdateUI();
             _scoreController.ScoreChanged += UpdateUI;
             _gameStateController.StartGameEvent += HideMenuUI;
+            _highScoreText.text = _scoreController.HighScore.ToString();
+
         }
 
         private void UpdateUI()
