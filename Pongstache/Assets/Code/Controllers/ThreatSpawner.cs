@@ -17,6 +17,7 @@ namespace Game.Controllers
         private float _xSpawnPosMax;
         private float _xSpawnBoundary;
         private GameSettings _gameSettings;
+        private GameStateController _gameStateController;
         private Camera _mainCamera;
 
         private void Awake()
@@ -28,21 +29,26 @@ namespace Game.Controllers
         private void Start()
         {
             _gameSettings = GetComponent<GameSettings>();
-            StartCoroutine(SpawnCoroutine());
-
+            _gameStateController = GetComponent<GameStateController>();
+            _gameStateController.StartGameEvent += StartSpawning;
             CalculateSpawnBoundary();
-        }
-
-        private void CalculateSpawnBoundary()
-        {
-            float horizontalScreenToWorld = _mainCamera.aspect * _mainCamera.orthographicSize;
-            _xSpawnBoundary = horizontalScreenToWorld;
         }
 
         private void Update()
         {
             if (Time.time < _gameSettings.TimeFromMinToMaxTime)
                 _timer = Time.time;
+        }
+
+        private void StartSpawning()
+        {
+            StartCoroutine(SpawnCoroutine());
+        }
+
+        private void CalculateSpawnBoundary()
+        {
+            float horizontalScreenToWorld = _mainCamera.aspect * _mainCamera.orthographicSize;
+            _xSpawnBoundary = horizontalScreenToWorld;
         }
 
         /// <summary>
