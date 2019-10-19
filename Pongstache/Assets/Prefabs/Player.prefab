@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 6704594385481274309}
   - component: {fileID: 6704594385481274308}
   - component: {fileID: 6704594385481274305}
+  - component: {fileID: 8557593861775663983}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -152,6 +153,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd39b433e3a826541bb816598534df81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8557593861775663983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704594385481274311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecd5976ec314a744ba325bee079e9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _arm: {fileID: 6916226236218254807}
+  _hand: {fileID: 8338148232362114231}
 --- !u!1 &6916226236218254807
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,14 +191,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6916226236218254807}
-  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: 0.92387956, w: 0.38268343}
   m_LocalPosition: {x: -0.148, y: 0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7107869973459700415}
   m_Father: {fileID: 43416418181352327}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 135}
 --- !u!212 &482342394018179782
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -364,14 +379,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8338148232362114231}
-  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0.2078, y: 0.0074, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7283397766344713027}
   m_Father: {fileID: 9087166159965860637}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
 --- !u!212 &2750248835192607688
 SpriteRenderer:
   m_ObjectHideFlags: 0
