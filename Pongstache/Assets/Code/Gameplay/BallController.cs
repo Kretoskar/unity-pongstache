@@ -12,6 +12,7 @@ namespace Game.Gameplay
     public class BallController : MonoBehaviour
     {
         private Player _player;
+        private Paddle _paddle;
         private Ball _ball;
         private Rigidbody2D _ballRigidbody;
         private bool _hasGameStarted = false;
@@ -20,6 +21,7 @@ namespace Game.Gameplay
         {
             _ball = GetComponent<Ball>();
             _ballRigidbody = GetComponent<Rigidbody2D>();
+            _paddle = FindObjectOfType<Paddle>();
         }
 
         private void Start()
@@ -57,7 +59,7 @@ namespace Game.Gameplay
 
         private void TweakCollisionAfterCollidingWithPlayer()
         {
-            float xTweak = -_ball.RandomFactorAfterHittingPlayer * (_player.transform.position.x - transform.position.x);
+            float xTweak = -_ball.RandomFactorAfterHittingPlayer * (_paddle.transform.position.x - transform.position.x);
             float yTweak = 0;
             Vector2 velTweak = new Vector2(xTweak, yTweak);
             if (_hasGameStarted)

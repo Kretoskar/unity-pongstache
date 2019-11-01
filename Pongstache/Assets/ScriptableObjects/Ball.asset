@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ball
   m_EditorClassIdentifier: 
   _baseBallSpeed: 5
-  _randomFactorAfterHittingPlayer: 5
+  _randomFactorAfterHittingPlayer: 10
   _xTweakAfterCollision: 0.1
   _yTweakAfterCollision: 1
